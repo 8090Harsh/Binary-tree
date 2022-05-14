@@ -1,0 +1,25 @@
+# Binary-tree
+int MaxLevel;
+public void LeftView(Node node , int level) {
+if(node == null) {
+return;
+}
+if(level >= MaxLevel) {
+System.out.println(node.data + " ");
+MaxLevel ++ ;
+}
+leftView(node.left, level+!);
+leftview(node.right, level+1);
+}
+}
+}
+
+          2
+        /   \
+      7       5
+   /    \       \
+  2     6        9
+     /    \     /
+    5     11    4
+    
+    output- 2 7 2 5
