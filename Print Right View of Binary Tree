@@ -1,0 +1,18 @@
+# Binary-tree
+int maxLevel;
+public void PrightView(Node node , int Level){
+if(node == null) {
+return;
+}
+if(Level>=maxLevel) {
+System.out.println(node.data + " ");
+maxLevel++;
+}
+PrightView(node.right,Level+1);
+PrightView(node.left , Level+1);
+}
+}
+
+
+//printing 
+a.PrightView(root,0);
