@@ -1,0 +1,63 @@
+# Binary-tree
+import java.util.Stack;
+class Node {
+    int data;
+    Node left;
+    Node right;
+}
+
+// insert the new node in tree 
+// best case ..
+
+class BinaryTree {
+    public Node createNewNode(int k){
+        Node value = new Node();
+        value.data = k;
+        value.left = null;
+        value.right = null;
+        return value;
+}
+public boolean check(Node t1 , Node t2){
+    if(t1 == null && t2 == null){
+        return true;
+    }
+    if(t1 == null || t2 == null) {
+        return false;
+    }
+    return t1.data == t2.data
+    && check(t1.left , t2.left) 
+    && check(t1.right , t2.right);
+}
+
+
+    public static void main(String[] args){
+      BinaryTree a = new BinaryTree();
+     Node root = a.createNewNode(2);
+      root.left = a.createNewNode(7);
+      root.right = a.createNewNode(5);
+      root.left.left = a.createNewNode(2);
+      root.left.right = a.createNewNode(6);
+      root.left.right.left = a.createNewNode(5);
+      root.left.right.right = a.createNewNode(11);
+      root.right.right = a.createNewNode(9); 
+       root.right.right.left = a.createNewNode(4);
+       
+       // scond 
+       
+        Node root1 = a.createNewNode(2);
+      root1.left = a.createNewNode(7);
+      root1.right = a.createNewNode(5);
+      root1.left.left = a.createNewNode(2);
+      root1.left.right = a.createNewNode(6);
+      root1.left.right.left = a.createNewNode(5);
+      root1.left.right.right = a.createNewNode(11);
+      root1.right.right = a.createNewNode(9); 
+       root1.right.right.left = a.createNewNode(4);
+       
+       System.out.println(a.check(root,root1));
+    
+    }
+}
+
+output
+true
