@@ -1,0 +1,53 @@
+# Binary-tree
+import java.util.Stack;
+class Node {
+    int data;
+    Node left;
+    Node right;
+}
+
+// insert the new node in tree 
+// best case ..
+
+class BinaryTree {
+    public Node createNewNode(int k){
+        Node value = new Node();
+        value.data = k;
+        value.left = null;
+        value.right = null;
+        return value;
+}
+public int getLevel(Node node , int val , int level) {
+    if(node == null){
+        return 0;
+    }
+    int l;
+    if(node.data == val) {
+        return level;
+    }
+    l = getLevel(node.left , val , level+1);
+    if(l !=0) {
+        return l;
+    }
+    l = getLevel(node.right , val , level+1);
+    return l;
+}
+
+    public static void main(String[] args){
+      BinaryTree a = new BinaryTree();
+     Node root = a.createNewNode(2);
+      root.left = a.createNewNode(7);
+      root.right = a.createNewNode(5);
+      root.left.left = a.createNewNode(2);
+      root.left.right = a.createNewNode(6);
+      root.left.right.left = a.createNewNode(5);
+      root.left.right.right = a.createNewNode(11);
+      root.right.right = a.createNewNode(9); 
+       root.right.right.left = a.createNewNode(4);
+       System.out.println(a.getLevel(root,11,1));
+    }
+}
+
+output
+java -cp /tmp/IJiorZvfim BinaryTree
+4
